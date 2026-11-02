@@ -1,146 +1,105 @@
 <div align="center">
-  <img src="./img/logo-symbol.png" alt="TuringUnion logo symbol" width="120" />
-  <h1><img src="./img/logo-mascot.png" alt="TuringUnion mascot" height="42" style="vertical-align: -4px;" /> 图灵学社 TuringUnion</h1>
-  <p><strong>One Learner, One University.</strong></p>
+  <img src="./img/logo-symbol.png" alt="Agentic University 标志" width="120" />
+  <h1><img src="./img/logo-mascot.png" alt="项目吉祥物" height="42" style="vertical-align: -4px;" /> Agentic University · 图灵学社</h1>
+  <p>一人一大学。</p>
+  <p>Collaborative Agents for Personalized Learning</p>
   <p>
+    <a href="https://arxiv.org/abs/2610.40492"><img alt="论文" src="https://img.shields.io/badge/arXiv-2610.40492-b31b1b?style=flat-square"></a>
     <a href="https://www.turingu.cn"><img alt="大学官网" src="https://img.shields.io/badge/大学官网-turingu.cn-009688?style=flat-square"></a>
-    <a href="https://agenticorglab.github.io/TuringUnion/"><img alt="演示视频" src="https://img.shields.io/badge/演示-观看视频-4c6fff?style=flat-square"></a>
+    <a href="https://agenticorglab.github.io/AgenticUniversity/"><img alt="项目与演示" src="https://img.shields.io/badge/演示-观看视频-4c6fff?style=flat-square"></a>
   </p>
-  <p>
-    <a href="./README.md">English</a> | <strong>中文</strong>
-  </p>
+  <p><a href="./README.md">English</a> | 中文</p>
 </div>
-
-<p align="center">
-  <a href="https://agenticorglab.github.io/TuringUnion/"><strong>观看图灵学社宣传片与精选演示 →</strong></a>
-</p>
 
 ### 🎓 项目概述
 
-图灵学社是一个面向 AI 时代个性化教育的多智能体自治教育引擎。系统以“一人一大学”为目标，通过学习者画像、路径规划、多智能体导师协同、动态课堂生成和企业级项目实训，构建可反馈、可调整、可沉淀的个性化培养闭环。
-
-系统关注的核心问题是传统教育中的结构性限制：
-
-- 教学方式单一
-- 师生资源不均衡
-- 课程体系固化
-- 学习与实践脱节
-
-这些限制共同导致传统教育难以同时满足：
-
-- 个性强
-- 效率高
-- 规模化
-
-图灵学社的设计目标，是将学习者从适应固定课程体系的角色，转变为由系统围绕其目标、基础、节奏和实践表现动态组织学习资源的中心节点。
-
-### 🎯 系统目标
-
-图灵学社围绕三个目标构建：
-
-- 持续理解学习者：通过多轮对话和学习行为采集，建立动态学习者画像。
-- 动态组织培养过程：根据画像和学习证据生成并调整学习路径、导师配置和课堂内容。
-- 验证真实能力：通过企业级项目、代码评审和过程证据沉淀，形成可信能力凭证。
-
-系统中的每一次对话、答题、练习、项目提交和反馈都会进入学习证据体系，并用于后续路径优化、导师调度和能力评估。下面的核心模块对应这一培养链路中的主要能力。
+Agentic University（AU，图灵学社 / TuringUnion）采用人类参与式多智能体组织（Human-Participatory Multi-Agent Organization），让学习者作为组织成员，与专业智能体共同维护一份可持续修订的能力培养方案（Capability Program）。方案连接个人目标、学习活动与评估，并用提问、反馈和评估表现指导后续支持。
 
 <a id="framework"></a>
 
 ### 🧩 系统框架
 
-图灵学社采用“智能认知—智能培养—智能验证”的三段式框架。系统首先将学习者目标、能力、反馈和任务约束建模为动态人类节点，再通过个性化培养方案、多智能体导师团和交互式动态课堂组织学习过程，最后以企业级项目实训和学习证据建模验证真实能力，并将结果反馈给路径优化模块。
+AU 通过共享的人类节点与能力培养方案，协调规划、导师、评估、重规划四类职能，每类职能可由多个智能体协作承担。
 
 <p align="center">
-  <img src="./img/method.png" alt="图灵学社系统框架" width="100%">
+  <a href="./img/paper/framework.png"><img src="./img/paper/framework.png" alt="人类节点与四类智能体围绕能力培养方案协同，课堂和评估产生的证据用于更新学习者状态与修订方案" width="100%"></a>
 </p>
 
-### 🤖 核心模块
+#### 1. 人类节点：可持续维护、可纠正的学习者表征
 
-#### 对话式画像建模
+Human Node 包含画像、当前状态与精选共享记忆，记录背景、偏好、时间约束、目标、进度、能力估计、困难、既往支持与方案修订。系统通过入学对话建立这些记录，明确的学习者陈述优先于推断或默认值，学习者可以持续纠正目标与系统假设。既往接触经历与已被评估证实的能力分开记录。
 
-画像建模是系统的入口模块。校长智能体通过多轮对话识别学习者的职业目标、知识基础、能力短板和学习偏好。该画像会随着学习行为和反馈持续更新，形成动态学习者模型。
+<details>
+<summary>查看入学对话与结构化学习者画像</summary>
 
-#### 个性化培养方案
+![对话形成结构化人类节点；展示的姓名和头像为虚构](./img/paper/human-node.jpg)
 
-系统基于学习者画像生成阶段化学习路径。以“Agent 开发工程师”为例，路径可以被拆解为多个阶段和节点，覆盖基础知识、工具使用、工程实践和项目交付等能力。路径支持动态调整：学习进展快时可压缩路径，关键节点受阻时可补强相关内容。
+</details>
 
-#### 多智能体导师团
+#### 2. 能力培养方案：连接目标、活动与评估
 
-导师团由多个职责不同的智能体组成。系统根据当前学习任务和学习者状态进行调度，让不同智能体分别处理讲解、实践指导、答疑、反馈、评估和支持任务。该机制用于缓解传统教学中导师资源不足和响应不及时的问题。
+Capability Program 由四部分共同构成：
 
-#### 交互式动态课堂
+| 组成 | 职责 |
+| --- | --- |
+| 学习路径（Learning Path） | 将阶段与知识点节点按先修关系、任务开放和推进条件连接。 |
+| 交互课堂（Interactive Classroom） | 提供节点对应的文档、教学视频、Pause-QA 和导师对话。 |
+| 评估（Assessment） | 明确任务、评估维度、允许的辅助与评分标准。 |
+| 方案状态（Program State） | 记录当前路径版本、已完成与剩余任务、证据和修订历史。 |
 
-动态课堂根据学习者的实时提问和互动生成教学内容。学习者可以在学习过程中随时打断、追问或改变关注点，系统会围绕当前问题重新组织讲解。
+规划模块结合人类节点、职业参考路径、能力图谱和岗位描述确定目标技能与先修要求。每个节点将学习目标与材料、导师支持和评估相连；阶段与整体目标进一步指导应用任务的设计。
 
-该模块由自研教学智能体 TeachMaster 支撑。TeachMaster 面向课程生产流程，覆盖课纲规划、内容编排、动画生成、语音讲解等环节。目前 TeachMaster 已累计讲授 5 万分钟，覆盖 42 个一级学科、437 个二级学科；每门课成本约 1600 元，约为传统录制课程成本的百分之一。
+#### 3. 教学、分层评估与两类证据
 
-#### 企业级项目实训
+交互课堂将生成式教学视频、文字材料、关键教学点的暂停问答（Pause-QA）与情境化导师支持组织在同一知识点下。评估范围逐层扩展：
 
-企业级项目实训用于连接学习过程与真实产业需求。系统可接入下游企业项目需求，学习者在在线工程环境中完成开发任务，系统对代码和项目交付进行自动评审。项目结果会沉淀为可信能力凭证，可作为学习者面向企业展示的项目履历。
+1. 章节评估：在每个知识点节点之后检查理解。
+2. 阶段微项目：通过明确交付物与评分标准，考察多个节点知识的应用。
+3. 企业情境模拟：在模拟工作任务中考察跨阶段知识的综合运用。
+
+提问、重试和困难反馈形成学习状态证据（Learning-State Evidence），用于调整讲解与支持；被评估的任务表现形成能力证据（Capability Evidence），只在实际测量的维度与辅助条件内更新能力估计。证据记录保留观察、来源与条件、相关判断、时间、置信度或质量，以及允许支持的更新。请求提示可以说明支持需求，但不能单独证明能力水平。
+
+<p align="center">
+  <a href="./img/paper/capability-program.jpg"><img src="./img/paper/capability-program.jpg" alt="学习路径、交互课堂、章节评估、阶段微项目与企业情境模拟" width="100%" loading="lazy"></a>
+</p>
+
+#### 4. 证据驱动修订，由学习者确认生效
+
+AU 采用三类状态更新规则：add 合并兼容证据，replace 在来源允许时更新字段并保留历史，keep conflicts 保留矛盾观察供后续诊断。
+
+Replanner 协调证据审计者、过程观察者和结果检查者，三者都按照同一标准评估概念、迁移与独立性。分歧超出预设容差时触发有限轮次的互评，最终以归一化的自报置信度权重聚合估计。
+
+当诊断出的差距达到干预条件时，概念差距指导在受影响节点之前补充先修教学，迁移或独立性差距指导在其之后增加练习。局部修订受分支深度和插入次数限制，保留已完成内容及周边顺序，并明确新增活动的目标与评估要求；无需干预时保留原路径。路径变更经学习者确认后生效，修订记录连接支持证据、诊断、调整与路径版本。
+
+<p align="center">
+  <a href="./img/paper/program-revision.jpg"><img src="./img/paper/program-revision.jpg" alt="修订前后的学习路径：在受影响节点附近增加学习活动，保留周边顺序" width="100%" loading="lazy"></a>
+</p>
 
 <a id="demo-videos"></a>
 
-### 🎬 功能示意视频
+### 🎬 功能演示
 
-在[视频轮播网站](https://agenticorglab.github.io/TuringUnion/)观看宣传片和精选 Demo，或前往 [videos 文件夹](https://github.com/AgenticOrgLab/TuringUnion/tree/main/videos)查看全部视频。
+在[项目主页](https://agenticorglab.github.io/AgenticUniversity/)观看宣传片和五个功能演示，或浏览 [videos 文件夹](./videos/)。演示涵盖学习者画像、个性化路径、多智能体导师、交互课堂和项目实践。
 
 <a id="evaluation"></a>
 
-### 📊 数据验证
+### 📊 初步验证
 
-参与者：22 名本硕博学习者，具备一定 AI 学习背景，但普遍缺乏产品分析经验，并以成长为多智能体产品分析师为学习目标。
+在以“AI 视频生成产品经理”为学习目标的短期研究中，AU 组在客观评估上的前后测平均提升幅度较对照组多 6.58 分（50 分制，每组 16 名学习者）。研究设置与完整结果见[论文](https://arxiv.org/html/2610.40492v1#S5)。
 
-#### 📈 学习结果
+### 📄 论文与引用
 
-<p align="center">
-  <img src="./img/outcome.jpg" alt="学习结果评测" width="100%">
-</p>
-
-初步结果显示：
-
-- 平均成绩提升 25.14%
-- 理解概念、方案设计、独立完成任务、企业项目信心四个能力维度均有提升
-- 路径匹配度、AI 反馈可信度和就业准备度信心的用户评分均超过 4 分
-
-#### 🔄 过程验证
-
-<p align="center">
-  <img src="./img/process.jpg" alt="学习过程验证" width="100%">
-</p>
-
-测试验证了“测—学—测—练”的学习闭环：系统可以基于测试和学习行为持续调整路径，并将学习过程沉淀为可追踪的成长记录。
-
-<a id="case-studies"></a>
-
-### 🔬 案例研究
-
-#### 新手探索型学员
-
-TU0024 代表缺少 AI 和产品经验、但具备持续学习意愿的新手学习者。系统从清晰路径、完整课程和企业级实践切入，帮助其建立基础能力并完成阶段性提升。
-
-<p align="center">
-  <img src="./img/beginner.jpg" alt="TU0024 新手探索案例" width="100%">
-</p>
-
-#### 进阶研究型学员
-
-TU013 代表具备研究基础和 AI 项目经验的进阶学习者。系统围绕其研究目标补齐知识结构，并通过多智能体协作和量化评估支持更深入的实践。
-
-<p align="center">
-  <img src="./img/advanced%20researcher.jpg" alt="TU013 进阶研究案例" width="100%">
-</p>
-
-#### 学员对比结果
-
-两类学习者的起点不同，但学习后成绩均达到 84 分以上；新手学员提升 45.0 分，进阶学员提升 24.5 分，说明系统能够根据不同基础提供有效的个性化培养。
-
-<p align="center">
-  <img src="./img/comparison.jpg" alt="案例学习前后对比" width="100%">
-</p>
-
-### 🚀 应用价值
-
-图灵学社面向个性化人才培养、AI 教育平台、企业人才培训和就业能力认证等场景。系统将课程学习、导师支持、项目实践和能力验证连接为一条完整的学习链路，旨在提供更具适应性的培养过程，并让产业相关方更容易理解和使用学习者的能力成果。
+```bibtex
+@article{fan2026agenticuniversity,
+  title={Agentic University: Collaborative Agents for Personalized Learning},
+  author={Fan, Jingru and Zhou, Tianle and Zhou, Yunjie and He, Zihao and
+          Zhou, Yixuan and Wu, Kezhao and Zheng, Xinyu and Wang, Xiyuan and
+          Wang, Yuheng and Li, Zhi and Liu, Songhua and E, Weinan and Qian, Chen},
+  journal={arXiv preprint arXiv:2610.40492},
+  year={2026},
+  url={https://arxiv.org/abs/2610.40492}
+}
+```
 
 ---
 

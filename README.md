@@ -1,140 +1,103 @@
 <div align="center">
-  <img src="./img/logo-symbol.png" alt="TuringUnion logo symbol" width="120" />
-  <h1><img src="./img/logo-mascot.png" alt="TuringUnion mascot" height="42" style="vertical-align: -4px;" /> 图灵学社 TuringUnion</h1>
-  <p><strong>One Learner, One University.</strong></p>
+  <img src="./img/logo-symbol.png" alt="Agentic University logo" width="120" />
+  <h1><img src="./img/logo-mascot.png" alt="Project mascot" height="42" style="vertical-align: -4px;" /> Agentic University · 图灵学社</h1>
+  <p>One Learner, One University.</p>
+  <p>Collaborative Agents for Personalized Learning</p>
   <p>
+    <a href="https://arxiv.org/abs/2610.40492"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2610.40492-b31b1b?style=flat-square"></a>
     <a href="https://www.turingu.cn"><img alt="University Website" src="https://img.shields.io/badge/University-turingu.cn-009688?style=flat-square"></a>
-    <a href="https://agenticorglab.github.io/TuringUnion/"><img alt="Demo Videos" src="https://img.shields.io/badge/Demo-Watch%20Videos-4c6fff?style=flat-square"></a>
+    <a href="https://agenticorglab.github.io/AgenticUniversity/"><img alt="Project and Demos" src="https://img.shields.io/badge/Project-Watch%20Demos-4c6fff?style=flat-square"></a>
   </p>
-  <p>
-    <strong>English</strong> | <a href="./README_CN.md">中文</a>
-  </p>
+  <p>English | <a href="./README_CN.md">中文</a></p>
 </div>
-
-<p align="center">
-  <a href="https://agenticorglab.github.io/TuringUnion/"><strong>Watch the TuringUnion promotional film and featured demos →</strong></a>
-</p>
 
 ### 🎓 Overview
 
-TuringUnion is a multi-agent autonomous education engine for personalized learning in the AI era. It follows the principle of “one learner, one university” and builds a personalized cultivation loop through learner profiling, path planning, multi-agent mentoring, dynamic classroom generation, and enterprise-level project training.
+Agentic University (AU, 图灵学社 / TuringUnion) brings learners and specialized agents together in a Human-Participatory Multi-Agent Organization. Each learner helps maintain a revisable Capability Program that connects personal goals, learning activities, and assessment. Questions, feedback, and assessed performance inform the support that comes next.
 
-The system addresses four structural limitations in traditional education:
+<a id="framework"></a>
 
-- Limited teaching formats
-- Uneven teacher-student resources
-- Rigid curriculum structures
-- Weak connection between learning and practice
+### 🧩 System Framework
 
-These limitations make it difficult for traditional education to achieve the following goals at the same time:
-
-- Strong personalization
-- High efficiency
-- Scalability
-
-TuringUnion is designed to move the learner from adapting to a fixed curriculum into a central position where goals, prior knowledge, learning rhythm, and practice performance dynamically organize the learning resources around them.
-
-### 🎯 System Goals
-
-TuringUnion is built around three goals:
-
-- Continuously understand learners through multi-turn dialogue and learning behavior collection.
-- Dynamically organize cultivation through learner profiles, learning evidence, path generation, mentor scheduling, and classroom generation.
-- Validate real capability through enterprise-level projects, code review, and structured evidence accumulation.
-
-Every conversation, answer, exercise, project submission, and feedback signal enters the learning evidence system and informs subsequent path optimization, mentor routing, and capability evaluation. The core modules below describe the main capabilities in this cultivation pipeline.
-
-### 🧩 Framework
-
-TuringUnion follows a three-stage framework: intelligent cognition, intelligent cultivation, and intelligent verification. The system first models learner goals, capability estimates, feedback, and task constraints as a dynamic human node. It then organizes learning through personalized cultivation plans, multi-agent mentor teams, and interactive dynamic classrooms, and finally validates real capability through enterprise-grade project training and learning evidence modeling.
+AU coordinates four functional roles—planning, mentoring, assessment, and replanning—through a shared Human Node and Capability Program. Multiple agents can collaborate within each role.
 
 <p align="center">
-  <img src="./img/method.png" alt="TuringUnion framework" width="100%">
+  <a href="./img/paper/framework.png"><img src="./img/paper/framework.png" alt="Human Node and four agent roles coordinate a Capability Program; classroom and assessment evidence feed learner-state updates and program revision" width="100%"></a>
 </p>
 
-### 🤖 Core Modules
+#### 1. Human Node: a persistent, correctable learner representation
 
-#### Conversational Learner Profiling
+The Human Node keeps the learner's profile, current state, and selected shared memory: background, preferences, time constraints, goals, progress, capability estimates, difficulties, earlier support, and revisions. Intake dialogue establishes these records. Explicit learner statements take priority over inferred defaults, and learners can correct goals or assumptions throughout learning. Prior exposure is recorded separately from demonstrated capability.
 
-Learner profiling is the entry module of the system. The President Agent uses multi-turn dialogue to identify career goals, prior knowledge, capability gaps, and learning preferences. The profile evolves with learning behavior and feedback, forming a dynamic learner model.
+<details>
+<summary>View the intake dialogue and structured learner profile</summary>
 
-#### Personalized Cultivation Plan
+![Intake dialogue creates a structured Human Node; the displayed name and avatar are fictional](./img/paper/human-node.jpg)
 
-The system generates staged learning paths from learner profiles. For example, an “Agent development engineer” path can be decomposed into multiple stages and nodes covering foundational knowledge, tool use, engineering practice, and project delivery. The path supports dynamic adjustment: it can compress when progress is fast and reinforce content when the learner is blocked at key nodes.
+</details>
 
-#### Multi-Agent Mentor Team
+#### 2. Capability Program: connect goals, activities, and assessment
 
-The mentor team consists of agents with different responsibilities. The system routes tasks according to the current learning objective and learner state, allowing different agents to handle explanation, practice guidance, Q&A, feedback, assessment, and support. This mechanism addresses the shortage and delayed response of mentor resources in traditional teaching.
+The Capability Program joins four components:
 
-#### Interactive Dynamic Classroom
+| Component | Responsibility |
+| --- | --- |
+| Learning Path | Stages and knowledge-point nodes linked by prerequisites and progression conditions. |
+| Interactive Classroom | Node-specific documents, instructional videos, Pause-QA, and mentor dialogue. |
+| Assessment | Tasks, assessed dimensions, permitted support, and grading criteria. |
+| Program State | Active path version, completed and remaining work, evidence, and revision history. |
 
-The dynamic classroom generates teaching content from real-time learner interaction. Learners can interrupt, ask follow-up questions, or change focus during learning, and the system reorganizes the explanation around the current question.
+Planning uses the Human Node alongside career reference paths, capability graphs, and job descriptions. Each node links its objective to materials, mentor support, and assessment requirements; stage and program goals guide broader applied tasks.
 
-This module is supported by TeachMaster, a self-developed teaching agent for course production workflows. TeachMaster covers syllabus planning, content organization, animation generation, voice explanation, and related processes. It has delivered 50,000 minutes of teaching, covering 42 first-level disciplines and 437 second-level disciplines. The cost per course is about RMB 1,600, roughly one percent of the cost of traditional recorded courses.
+#### 3. Instruction, layered assessment, and two kinds of evidence
 
-#### Enterprise-Level Project Training
+The Interactive Classroom combines generated videos, written materials, questions at key teaching points (Pause-QA), and context-aware mentor support. Assessment expands in scope:
 
-Enterprise-level project training connects learning with real industry needs. The system can integrate downstream enterprise project requirements. Learners complete development tasks in an online engineering environment, and the system automatically reviews code and project deliverables. The project results become trustworthy capability credentials and enterprise-facing project experience.
+1. Chapter assessments check understanding after each knowledge-point node.
+2. Stage micro-projects test application across several nodes with explicit outputs and criteria.
+3. An enterprise simulation examines integration across stages in a simulated workplace task.
+
+Learning-State Evidence from questions, retries, and reported difficulties guides teaching and support. Capability Evidence from assessed work updates capability estimates only within the tested dimensions and assistance conditions. Evidence records retain the observation, source and conditions, relevant claim, time, confidence or quality, and permitted updates. Asking for a hint can guide support; it does not by itself establish a capability judgment.
+
+<p align="center">
+  <a href="./img/paper/capability-program.jpg"><img src="./img/paper/capability-program.jpg" alt="Learning Path, Interactive Classroom, chapter assessment, stage micro-project, and enterprise simulation" width="100%" loading="lazy"></a>
+</p>
+
+#### 4. Evidence-guided revision with learner confirmation
+
+AU updates state by combining compatible evidence (add), updating authorized fields while retaining history (replace), and preserving inconsistent observations for diagnosis (keep conflicts).
+
+The Replanner brings together an evidence auditor, process observer, and outcome examiner. All three assess concept, transfer, and independence under a shared rubric. Substantial disagreement triggers bounded peer review; final estimates are aggregated using normalized, self-reported confidence weights.
+
+When a diagnosed gap warrants intervention, a concept gap guides prerequisite instruction before the affected node, while transfer or independence gaps guide practice after it. Local revisions respect insertion and branch-depth limits, preserve completed work and the surrounding sequence, and specify the new activity's objective and assessment. If no intervention is needed, AU retains the path. Changes take effect after learner confirmation, with evidence, diagnosis, and path versions linked in the revision record.
+
+<p align="center">
+  <a href="./img/paper/program-revision.jpg"><img src="./img/paper/program-revision.jpg" alt="Before-and-after learning paths show a local insertion while preserving the surrounding sequence" width="100%" loading="lazy"></a>
+</p>
 
 ### 🎬 Demo Videos
 
-Watch the promotional film and featured demos on the [video carousel site](https://agenticorglab.github.io/TuringUnion/), or browse all files in the [videos folder](https://github.com/AgenticOrgLab/TuringUnion/tree/main/videos).
+Watch the promotional film and five feature demos on the [project site](https://agenticorglab.github.io/AgenticUniversity/), or browse the [videos folder](./videos/). The demos illustrate learner profiling, personalized paths, mentor collaboration, interactive classrooms, and project practice.
 
-### 📊 Evaluation
+<a id="evaluation"></a>
 
-Participants: 22 undergraduate, master’s, and doctoral learners with some AI learning background but generally limited product analysis experience. Their learning goal was to grow into multi-agent product analysts.
+### 📊 Preliminary Evaluation
 
-#### 📈 Learning Outcome
+In a short-term study focused on becoming an AI video generation product manager, the AU group achieved a mean pre-to-post gain in objective assessment scores 6.58 points larger than the comparison group (50-point scale; 16 learners per group). Study procedures and full results are available in the [paper](https://arxiv.org/html/2610.40492v1#S5).
 
-<p align="center">
-  <img src="./img/outcome.jpg" alt="Learning outcome evaluation" width="100%">
-</p>
+### 📄 Paper & Citation
 
-Preliminary results show:
-
-- Average score improvement of 25.14%
-- Improvement across concept understanding, solution design, independent task completion, and enterprise project confidence
-- User ratings above 4 points for path matching, AI feedback credibility, and job readiness confidence
-
-#### 🔄 Process Validation
-
-<p align="center">
-  <img src="./img/process.jpg" alt="Learning process validation" width="100%">
-</p>
-
-The test provides initial validation for the “test—learn—test—practice” loop. The system can adjust learning paths based on testing and learning behavior, while accumulating traceable growth records.
-
-<a id="case-studies-en"></a>
-
-### 🔬 Case Studies
-
-#### Beginner Exploration Profile
-
-TU0024 represents a beginner learner with limited AI and product experience but strong willingness to learn. TuringUnion starts with a clear path, structured courses, and enterprise-level practice to build foundational capability and deliver measurable progress.
-
-<p align="center">
-  <img src="./img/beginner.jpg" alt="TU0024 beginner exploration case study" width="100%">
-</p>
-
-#### Advanced Research Profile
-
-TU013 represents an advanced learner with research foundations and prior AI project experience. TuringUnion fills knowledge gaps around the learner’s research goals and supports deeper practice through multi-agent collaboration and quantitative evaluation.
-
-<p align="center">
-  <img src="./img/advanced%20researcher.jpg" alt="TU013 advanced research case study" width="100%">
-</p>
-
-#### Cross-Case Comparison
-
-The two learners started from different baselines, yet both reached scores above 84 after learning. The beginner learner improved by 45.0 points, while the advanced learner improved by 24.5 points, indicating that the system adapts cultivation to different learner profiles.
-
-<p align="center">
-  <img src="./img/comparison.jpg" alt="Before and after case study comparison" width="100%">
-</p>
-
-### 🚀 Application Value
-
-TuringUnion targets personalized talent cultivation, AI education platforms, enterprise talent training, and job capability certification. The system connects course learning, mentor support, project practice, and capability validation into one learning pipeline, aiming to provide learners with more adaptive cultivation and make capability outcomes easier for industry stakeholders to understand and use.
+```bibtex
+@article{fan2026agenticuniversity,
+  title={Agentic University: Collaborative Agents for Personalized Learning},
+  author={Fan, Jingru and Zhou, Tianle and Zhou, Yunjie and He, Zihao and
+          Zhou, Yixuan and Wu, Kezhao and Zheng, Xinyu and Wang, Xiyuan and
+          Wang, Yuheng and Li, Zhi and Liu, Songhua and E, Weinan and Qian, Chen},
+  journal={arXiv preprint arXiv:2610.40492},
+  year={2026},
+  url={https://arxiv.org/abs/2610.40492}
+}
+```
 
 ---
 
